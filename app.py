@@ -4,7 +4,7 @@ import numpy as np
 from datetime import datetime, timedelta
 
 st.set_page_config(page_title="Enterprise Data Pipeline", layout="wide")
-st.title("📡 Enterprise Network Transaction Pipeline")
+st.title(" Enterprise Network Transaction Pipeline")
 st.subheader("Automated Data Processing & Financial Analytics Engine")
 st.markdown("---")
 
@@ -36,12 +36,12 @@ total_data_traffic = df['Data_Volume_MB'].sum() / 1024
 failed_count = len(df[df['Status'] == 'FAILED'])
 
 col1, col2, col3 = st.columns(3)
-with col1: st.metric(label="Processed Gross Revenue", value=f"GH₵ {total_revenue:,.2f}")
+with col1: st.metric(label="Processed Gross Revenue", value=f"GHc {total_revenue:,.2f}")
 with col2: st.metric(label="Total Network Traffic Volume", value=f"{total_data_traffic:,.2f} GB")
 with col3: st.metric(label="System Failure Logs Flagged", value=f"{failed_count:,} Errors", delta=f"{failed_count:,} Errors", delta_color="inverse")
 
-st.markdown("### 🔍 Real-Time Stream Ingestion Ledger")
+st.markdown("###  Real-Time Stream Ingestion Ledger")
 selected_service = st.selectbox("Select Service Vector:", ['All Services'] + list(df['Service_Type'].unique()))
 filtered_df = df if selected_service == 'All Services' else df[df['Service_Type'] == selected_service]
 st.dataframe(filtered_df, use_container_width=True)
-st.caption("🔒 Architecture managed via Git Source Control. Compliant with telecom logging standards.")
+st.caption(" Architecture managed via Git Source Control. Compliant with telecom logging standards.")
